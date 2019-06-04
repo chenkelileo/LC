@@ -53,14 +53,16 @@ public class LC1TwoSum {
             if (map.containsKey(target - nums[i]))
                 return new int[]{map.get(target - nums[i]), i};
             map.put(nums[i], i); //put add statement down below.
-
+        }
         return new int[]{-1, -1};
-
     }
+
     // T: O(n) = n hashmap lookup costs only O(1)
     // S: O(n) = n
 
     public static void main(String[] args) {
-        System.out.println("hello");
+
     }
+
+
 }
