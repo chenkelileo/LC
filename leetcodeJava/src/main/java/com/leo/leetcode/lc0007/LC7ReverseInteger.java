@@ -40,6 +40,7 @@ public class LC7ReverseInteger {
     // time: O(n)
     // space: O(1)
     public static void main(String[] args) {
-        System.out.println(reverse(123));
+        System.out.println(reverse(100));
+        //System.out.println(reverse(123));
     }
 }
