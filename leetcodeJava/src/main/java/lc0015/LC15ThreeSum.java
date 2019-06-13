@@ -59,6 +59,8 @@ public class LC15ThreeSum {
                     temp.add(nums[left]);
                     temp.add(nums[right]);
                     res.add(temp);
+                    // res.add(Arrays.asList(nums[i], nums[left], nums[right]));
+
                     //right
                     while (left < right && nums[left] == nums[left + 1]) left++;
                     while (left < right && nums[right] == nums[right - 1]) right--;
