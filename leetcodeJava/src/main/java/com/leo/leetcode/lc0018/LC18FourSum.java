@@ -1,4 +1,4 @@
-package lc0018;
+package com.leo.leetcode.lc0018;
 
 import java.util.ArrayList;
 import java.util.Arrays;

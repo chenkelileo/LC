@@ -25,7 +25,7 @@
  * [-1, -1, 2]
  * ]
  */
-package lc0015;
+package com.leo.leetcode.lc0015;
 
 import java.util.ArrayList;
 import java.util.Arrays;
