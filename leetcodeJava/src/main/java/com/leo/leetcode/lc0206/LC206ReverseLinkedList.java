@@ -11,7 +11,7 @@ class ListNode {
     }
 }
 
-public class lc206ReverseLinkedList {
+public class LC206ReverseLinkedList {
     public ListNode reverseList(ListNode head) { //head means cur head
         ListNode pre = null;
         while (head != null) {
