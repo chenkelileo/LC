@@ -7,7 +7,7 @@ public class PalindromePermutation_1_4 {
 
     public static boolean isPalindromePermutation(String str) {
         str = str.toLowerCase();
-        int[] alps = new int[26]; //assume
+        int[] alps = new int[26]; //assume not case sensitive base on test case
         for (int i = 0; i < str.length(); i++) {
             if (str.charAt(i) == ' ')
                 continue;
