@@ -17,7 +17,7 @@ public class URLify_1_3 {
             }
         }
         sArray = sb.toString().toCharArray(); // why it is void  ?
-        System.out.println(sArray);
+        //System.out.println(sArray);
     }
     //t: O(n)
     //s: O(n)
@@ -51,7 +51,7 @@ public class URLify_1_3 {
     //s:O(1) in place, so it changes original sArray
     public static void main(String[] args) {
         char[] sArray = "Mr John Smith    ".toCharArray();
-        sArray = replaceSpace3(sArray, 13).toCharArray();
+        replaceSpace(sArray, 13);
         System.out.println(new String(sArray));
 //        char[] sArray = "Mr John Smith    ".toCharArray();
 //        replaceSpace2(sArray, 13);
