@@ -4,7 +4,7 @@
  * sl and s2, write code to check if s2 is a rotation of sl using only one call
  * to isSubstring (e.g.,"waterbottle" is a rotation of"erbottlewat").
  */
-package com.leo.cct189;
+package com.leo.cct189.ch1_Arrays_Strings;
 // After reviewing all 3 hints, it is genius!!!!!
 
 

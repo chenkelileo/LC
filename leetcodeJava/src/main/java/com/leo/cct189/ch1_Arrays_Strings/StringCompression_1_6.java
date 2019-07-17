@@ -5,7 +5,7 @@
  * the original string. You can assume the string has only uppercase and lowercase letters (a - z).
  * Hints:#92, #110
  */
-package com.leo.cct189;
+package com.leo.cct189.ch1_Arrays_Strings;
 //a2b2c2 is fine
 //a1b1c1 is not fine
 

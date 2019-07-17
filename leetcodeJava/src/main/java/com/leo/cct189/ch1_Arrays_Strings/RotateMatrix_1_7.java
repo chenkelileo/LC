@@ -3,7 +3,7 @@
  * write a method to rotate the image by 90 degrees. Can you do this in place?
  * Hints:#51, #100
  */
-package com.leo.cct189;
+package com.leo.cct189.ch1_Arrays_Strings;
 
 //Assume: turn right 90 degrees
 

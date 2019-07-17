@@ -3,29 +3,29 @@
  * EXAMPLE
  * Input: "Mr John Smith ", 13 Output: "Mr%20John%20Smith" Hints: #53, #118
  */
-package com.leo.cct189;
+package com.leo.cct189.ch1_Arrays_Strings;
 
 public class URLify_1_3 {
-    public static void replaceSpace(char[] sArray, int trueLength) {
-        StringBuilder sb = new StringBuilder();
+//    public static void replaceSpace(char[] sArray, int trueLength) {
+//        StringBuilder sb = new StringBuilder();
+//
+//        for (int i = 0; i < trueLength; i++) {
+//            if (sArray[i] != ' ')
+//                sb.append(sArray[i]);
+//            else {
+//                sb.append("%20");
+//            }
+//        }
+//        sArray = sb.toString().toCharArray(); // why it is void  ?
+//        //System.out.println(sArray);
+//    }
+//    //t: O(n)
+//    //s: O(n)
 
-        for (int i = 0; i < trueLength; i++) {
-            if (sArray[i] != ' ')
-                sb.append(sArray[i]);
-            else {
-                sb.append("%20");
-            }
-        }
-        sArray = sb.toString().toCharArray(); // why it is void  ?
-        //System.out.println(sArray);
-    }
-    //t: O(n)
-    //s: O(n)
-
-    public static String replaceSpace3(char[] s_array, int trueLength) {
-        String str = new String(s_array);
-        return str.trim().replace(" ", "%20");
-    }
+//    public static String replaceSpace3(char[] s_array, int trueLength) {
+//        String str = new String(s_array);
+//        return str.trim().replace(" ", "%20");
+//    }
 
     //use this one
     public static void replaceSpace2(char[] sArray, int trueLength) {
@@ -51,7 +51,7 @@ public class URLify_1_3 {
     //s:O(1) in place, so it changes original sArray
     public static void main(String[] args) {
         char[] sArray = "Mr John Smith    ".toCharArray();
-        replaceSpace(sArray, 13);
+        replaceSpace2(sArray, 13);
         System.out.println(new String(sArray));
 //        char[] sArray = "Mr John Smith    ".toCharArray();
 //        replaceSpace2(sArray, 13);

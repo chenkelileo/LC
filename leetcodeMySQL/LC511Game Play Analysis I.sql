@@ -15,3 +15,9 @@ group by tb1.player_id;
 select tb2.player_id, tb2.event_date as first_login from 
 (select tb1.player_id, tb1.event_date, rank() over (partition by tb1.player_id order by tb1. event_date) 
 ranking from Activity tb1) as tb2 where ranking = 1; -- ranking as alis need to put out of the select
+
+select distinct tb1.player_id, min(tb1.event_date) over (partition by tb1.player_id) first_login from Activity tb1;
+
+-- Write a SQL query that reports the device that is first logged in for each player.
+select player_id, device_id from Activity where (player_id, event_date) in -- assume only one combination, like primary key
+(select player_id, min(event_date) from Activity group by player_id); 

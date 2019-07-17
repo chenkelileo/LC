@@ -3,7 +3,7 @@
  * EXAMPLE
  * pale, ple -> true pales, pale -> true pale, bale -> true pale, bake -> false Hints:#23, #97, #130
  */
-package com.leo.cct189;
+package com.leo.cct189.ch1_Arrays_Strings;
 
 import java.util.Arrays;
 import java.util.HashMap;
