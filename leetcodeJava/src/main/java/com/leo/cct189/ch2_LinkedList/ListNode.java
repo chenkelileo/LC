@@ -8,11 +8,11 @@ class ListNode {
         val = x;
     }
 
-    void endAppend(int data){
+    void endAppend(int data) {
         ListNode end = new ListNode(data);
         ListNode current = this;
 
-        while(current.next != null){
+        while (current.next != null) {
             current = current.next;
         }
         current.next = end;
