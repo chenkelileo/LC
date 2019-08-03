@@ -1,15 +1,17 @@
 package com.leo.leetcode.lc0206;
 
 
-// Definition for singly-linked list.
-class ListNode {
-    int val;
-    ListNode next;
+//// Definition for singly-linked list.
+//class ListNode {
+//    int val;
+//    ListNode next;
+//
+//    ListNode(int x) {
+//        val = x;
+//    }
+//}
 
-    ListNode(int x) {
-        val = x;
-    }
-}
+import com.leo.leetcode.ListNode;
 
 public class LC206ReverseLinkedList {
     public ListNode reverseList(ListNode head) { //head means cur head
