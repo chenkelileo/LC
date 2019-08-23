@@ -67,4 +67,24 @@ public class move0s {
             }
         }
     }
+
+    public void moveZeros3(int[] nums) {
+        //corner case
+        if(nums == null || nums.length <2){
+            return;
+        }
+        //initialize
+        int slow = 0;
+
+        //iteration
+        for(int fast = 0; fast < nums.length; fast++) {
+            if(nums[fast] != 0){
+               nums[slow++] = nums[fast];
+            }
+        }
+        while(slow < nums.length) {
+            nums[slow++] = 0;
+        }
+        //return
+    }
 }

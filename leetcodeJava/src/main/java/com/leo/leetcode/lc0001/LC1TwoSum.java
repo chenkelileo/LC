@@ -25,7 +25,9 @@
  */
 package com.leo.leetcode.lc0001;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class LC1TwoSum {
     public int[] twoSum(int[] nums, int target) {
@@ -60,8 +62,50 @@ public class LC1TwoSum {
     // T: O(n) = n hashmap lookup costs only O(1)
     // S: O(n) = n
 
-    public static void main(String[] args) {
 
+//2, 7, 11, 15
+
+//map <nums[i]:i>
+
+    public int[] twoSum_test(int[] nums, int target) {
+        //initialize
+        HashMap<Integer, Integer> map = new HashMap<>();
+        //iterate
+        for (int i = 0; i < nums.length; i++) {
+            if (map.containsKey(target - nums[i])) {
+                return new int[]{map.get(target - nums[i]), i};
+            }
+            map.put(nums[i], i);
+        }
+        //return
+        return new int[]{-1, -1};
+    }
+
+    //if can have more than 2 solutions
+    public static List<int[]> twoSum_multiSolution(int[] nums, int target) {
+        //corner
+        //initialize
+        HashMap<Integer, List<Integer>> map = new HashMap<>();
+        List<int[]> result = new ArrayList<>();
+
+        //iteration
+        for (int i = 0; i < nums.length; i++) {
+            if (!map.containsKey(target - nums[i])) {
+               map.computeIfAbsent(nums[i], k -> new ArrayList<>()).add(i);
+            } else {
+                for (int index : map.get(target - nums[i])) {
+                    result.add(new int[]{index, i});
+                }
+            }
+        }
+
+        //return
+        return result;
+    }
+
+    public static void main(String[] args) {
+        int[] nums = {2, 2, 3, 3};
+        twoSum_multiSolution(nums,5);
     }
 
 
