@@ -1,6 +1,6 @@
 package com.leo.jakeclass;
 
-public class C11DpMaximumSubarray {
+public class C11DpMaximumSubarray_LC53 {
     public static int maxSubArray(int[] nums) {
         //corner case
         if (nums == null || nums.length == 0) {
