@@ -1,9 +1,14 @@
 package com.leo.leetcode.lc0238;
 
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
+
 public class LC238ProductofArrayExceptSelf {
     public static int[] productExceptSelf(int[] nums) {
         //corner
-        if(nums == null) {
+        if (nums == null) {
             return nums;
         }
         //initialize
@@ -15,15 +20,15 @@ public class LC238ProductofArrayExceptSelf {
         int[] result = new int[len];
 
         //iteration
-        for(int i = 1; i <= len; i++) {
+        for (int i = 1; i <= len; i++) {
             pre[i] = pre[i - 1] * nums[i - 1];
         }
 
-        for(int i = len - 1; i >= 0; i--){
+        for (int i = len - 1; i >= 0; i--) {
             post[i] = post[i + 1] * nums[i];
         }
 
-        for(int i = 0; i < len; i++){
+        for (int i = 0; i < len; i++) {
             result[i] = pre[i] * post[i + 1];
         }
         //return
@@ -31,7 +36,13 @@ public class LC238ProductofArrayExceptSelf {
     }
 
     public static void main(String[] args) {
-        int[] arr = {1,2,3,4};
+        int[] arr = {5,1, 2, 3, 4};
+
+//        Arrays.sort(arr, reverse );
+
+//        Arrays.sort(arr, Comparator.reverseOrder());
+        Arrays.sort(arr);
+        System.out.println(arr[0]);
         productExceptSelf(arr);
     }
 }
