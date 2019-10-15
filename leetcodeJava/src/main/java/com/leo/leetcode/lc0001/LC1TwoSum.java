@@ -25,9 +25,7 @@
  */
 package com.leo.leetcode.lc0001;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 public class LC1TwoSum {
     public int[] twoSum(int[] nums, int target) {
@@ -45,7 +43,7 @@ public class LC1TwoSum {
     // S: O(n) = 1
 
 
-    public int[] twoSum2(int[] nums, int target) {
+    public static int[] twoSum2(int[] nums, int target) {
         if (nums == null || nums.length == 0)
             return new int[]{-1, -1};
         HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
@@ -53,7 +51,7 @@ public class LC1TwoSum {
             //3,2,4  t=6
             //3,3,2, still make sense
             if (map.containsKey(target - nums[i]))
-                return new int[]{map.get(target - nums[i]), i};
+                return new int[]{map.get(target - nums[i]), i};// 1st iteration has nothing in map
             map.put(nums[i], i); //put add statement down below.
         }
         return new int[]{-1, -1};
@@ -91,7 +89,7 @@ public class LC1TwoSum {
         //iteration
         for (int i = 0; i < nums.length; i++) {
             if (!map.containsKey(target - nums[i])) {
-               map.computeIfAbsent(nums[i], k -> new ArrayList<>()).add(i);
+                map.computeIfAbsent(nums[i], k -> new ArrayList<>()).add(i);
             } else {
                 for (int index : map.get(target - nums[i])) {
                     result.add(new int[]{index, i});
@@ -101,11 +99,54 @@ public class LC1TwoSum {
 
         //return
         return result;
+
+
+    }
+
+    public static int twoSumUniquePair(int[] nums, int target) {
+        //initialize
+        HashSet<Integer> set = new HashSet<>();
+        HashSet<Integer> seen = new HashSet<>();
+        int res = 0;
+        //iterate
+        for (int i = 0; i < nums.length; i++) {
+            if (set.contains(target - nums[i])) {
+                if (!seen.contains(target - nums[i])) {
+                    res++;
+                    seen.add(target - nums[i]);
+                    seen.add(nums[i]);
+                }
+            }
+            set.add(nums[i]);
+        }
+        //return
+        return res;
+    }
+
+    public static int[] findPairWithLargestNumber(int[] nums, int target) {
+        //initialize
+        HashMap<Integer, Integer> map = new HashMap<>();
+        int max = Integer.MIN_VALUE;
+        int[] res = new int[2];
+        //iterate
+        for (int i = 0; i < nums.length; i++) {
+            if (map.containsKey(target - nums[i])) {
+                if (nums[i] > max || nums[map.get(target - nums[i])] > max ) {
+                    res[0] = map.get(target - nums[i]);
+                    res[1] = i;
+                    max = Math.max(res[0], res[1]);
+                }
+            }
+            map.put(nums[i], i);
+        }
+        //return
+        return res;
     }
 
     public static void main(String[] args) {
-        int[] nums = {2, 2, 3, 3};
-        twoSum_multiSolution(nums,5);
+        int[] nums = {20, 50, 40, 25, 30, 10};
+        int[] res = findPairWithLargestNumber(nums, 90 - 30);
+        System.out.println(Arrays.toString(res));
     }
 
 
