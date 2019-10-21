@@ -26,6 +26,8 @@ public class Min_Cost_to_Connect_Ropes {
 
         //return
         return res;
+       // Time complexity: O(nlogn).
+         //       Space complexity: O(n).
     }
 
     public static void main(String[] args) {

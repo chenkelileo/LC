@@ -36,7 +36,8 @@ public class OptimalUtilization {
         }
         return res;
     }
-
+//t= O(nlogn) n = max()
+    //s = O(n) n = max()
     public static void main(String[] args) {
         List<int[]> a = new ArrayList<>();
         a.add(new int[]{1,8});

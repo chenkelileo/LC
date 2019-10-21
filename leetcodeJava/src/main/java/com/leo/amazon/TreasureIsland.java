@@ -49,6 +49,8 @@ public class TreasureIsland {
         //return
         return -1;
     }
+//    Time complexity: O(r * c).
+//    Space complexity: O(r * c).
 
     public static void main(String[] args) {
         char[][] testcase = {{'O', 'O', 'O', 'O'},

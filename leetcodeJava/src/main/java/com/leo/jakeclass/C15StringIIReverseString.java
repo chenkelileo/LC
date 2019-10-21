@@ -21,6 +21,18 @@ public class C15StringIIReverseString {// or append directly
         return new String(cResult);
     }
 
+    public static String shift2(String str, int n) {
+        int r = n % (str.length());
+        return str.substring(str.length() - r) + str.substring(0, str.length() - r);
+
+    }
+
+    public static void shift3(char[] chars, int n) {
+        int r = n % (chars.length);
+        reverse2(chars, 0, chars.length - 1 - r);
+        reverse2(chars, chars.length - r, chars.length - 1);
+        reverse2(chars, 0, chars.length - 1);
+    }
     public static String reverseSentence(String s) {
         char[] chars = s.toCharArray();
         reverse(chars);
@@ -35,6 +47,33 @@ public class C15StringIIReverseString {// or append directly
             sb.append(temp + " ");
         }
         return sb.toString();
+    }
+
+    public static String reverseSentence2(String s) {
+        char[] cs = s.toCharArray();
+        reverse2(cs, 0, s.length() - 1);
+
+        int i = 0;
+        int j = 0;
+        while (j < s.length()) {
+            if(j == s.length() - 1 ||  cs[j] == ' ' ) {
+                reverse2(cs, i, j - 1);
+                j++;
+                i = j;
+            } else {
+                j++;
+            }
+
+        }
+        return new String(cs);
+    }
+
+    public static void reverse2(char[] chars, int a, int b) {
+        //iteration
+        while (a < b) {
+            swap(chars, a++, b--);
+        }
+        //return
     }
 
     public static void reverse(char[] chars) {
@@ -67,9 +106,13 @@ public class C15StringIIReverseString {// or append directly
         System.out.println(str);
         String str1 = "apple";
 
-        System.out.println(reverseSentence("I Love Leo"));
+        String str2 = "I Love Leo";
+
+        System.out.println(reverseSentence2(str2));
+
         char[] char2 = {'a', 'b', 'c', 'd', 'e', 'f'};
-        System.out.println(shift(char2, 8));
+
+        shift3(char2, 8);
 
     }
 }
