@@ -34,7 +34,7 @@ package com.leo.leetcode.lc0003;
 import java.util.HashSet;
 
 public class LC3LongestSubstringWithoutRepeatingCharacters {
-    public int lengthOfLongestSubstring(String s) {
+    public static int lengthOfLongestSubstring(String s) {
         //corner
         if (s == null || s.length() == 0) {
             return 0;
@@ -51,7 +51,7 @@ public class LC3LongestSubstringWithoutRepeatingCharacters {
                 res = Math.max(res, set.size());
                 end++;
             } else {
-                set.remove(s.charAt(start));
+                set.remove(s.charAt(start));//in order to remove more than one element
                 start++;
             }
         }
@@ -61,6 +61,7 @@ public class LC3LongestSubstringWithoutRepeatingCharacters {
     }
 
     public static void main(String[] args) {
+        System.out.println(lengthOfLongestSubstring("pwwkew"));
 
     }
 
