@@ -42,7 +42,8 @@ public class LC658FindKClosestElements {
             } else if (x > arr[mid]) {
                 left = mid;
             } else {
-                right = mid;
+                //right = mid;
+                break;
             }
         }
         //step 2:
@@ -73,7 +74,7 @@ public class LC658FindKClosestElements {
      */
 
 
-    public static List<Integer> findClosestElements2(int[] arr, int k, int x) {
+    public static List<Integer> findClosestElements3(int[] arr, int k, int x) {
         List<Integer> res = new ArrayList<>();
         int left = 0;
         int right = arr.length - k;
@@ -97,7 +98,48 @@ public class LC658FindKClosestElements {
         return res;
     }
 
+    public static List<Integer> findClosestElements2(int[] arr, int k, int x) {
+        // corner case
+        if(arr == null || arr.length == 0) return null;
+
+        // initialize
+        int left = 0;
+        int right = arr.length - 1;
+        List<Integer> list = new ArrayList<>();
+
+        // iteration
+        while (left < right - 1) {
+            int mid = left + (right - left) / 2;
+            if(x > arr[mid]) {
+                left = mid;
+            } else if (x < arr[mid]) {
+                right = mid;
+            } else { // target == array[mid]
+                break;
+            }
+        }
+
+        for(int i = 0; i < k; i++) {
+            if(left >= 0 &&right < arr.length && Math.abs(arr[left] - x) > Math.abs(arr[right] - x)) {
+                list.add(arr[right]);
+                right++;
+            } else if (left >= 0 && right < arr.length && Math.abs(arr[left] - x) <= Math.abs(arr[right] - x)) {
+                list.add(arr[left]);
+                left--;
+            } else if (left < 0 && right < arr.length) {
+                list.add(arr[right]);
+                right++;
+            } else if (right >= arr.length && left>=0){
+                list.add(arr[left]);
+                left--;
+            }
+        }
+        return list;
+
+    }
+
     public static void main(String[] args) {
         findClosestElements(new int[]{1, 4, 6, 8}, 3, 3);
+        findClosestElements(new int[]{1, 2, 3}, 2, 3);
     }
 }
