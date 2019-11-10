@@ -28,16 +28,16 @@ public class LC56MergeIntervals {
         }
 
         //initialize
-        Arrays.sort(intervals, (o1, o2) -> o1[0] - o2[0]);//try, same as int[] o1 ascending order
+//        Arrays.sort(intervals, (o1, o2) -> o1[0] - o2[0]);//try, same as int[] o1 ascending order
         //Arrays.sort(intervals, Comparator.comparing(int[] i -> i[0]));
-//        Arrays.sort(intervals, new Comparator<int[]>() {
-//            @Override
-//            public int compare(int[] o1, int[] o2) {
-//                if(o1 if(o1[0] == o2[0])
-//                    return 0;
-//                else return (o1[0] - o2[0] > 0) ? 1 : -1;
-//            }
-//        });
+        Arrays.sort(intervals, new Comparator<int[]>() {//keep in mind this order only, and 1 means true
+            @Override
+            public int compare(int[] o1, int[] o2) {
+                if(o1[0] == o2[0])
+                    return 0;
+                else return (o1[0] - o2[0] > 0) ? 1 : -1;
+            }
+        });
         List<int[]> lists = new ArrayList<>();
         lists.addAll(Arrays.asList(intervals));// turn array to list together
         //iteration
@@ -53,6 +53,11 @@ public class LC56MergeIntervals {
     }
 
     public static void main(String[] args) {
-
+        Integer[] f = {1,2,3};
+        List<Integer> aa = new ArrayList<>();
+        aa.addAll(Arrays.asList(f));
+        aa.add(1);
+        aa.add(2);
+        aa.set(2,5);
     }
 }

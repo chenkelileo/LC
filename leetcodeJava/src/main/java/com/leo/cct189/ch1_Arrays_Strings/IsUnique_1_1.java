@@ -10,16 +10,51 @@ import java.util.HashMap;
 import java.util.HashSet;
 
 public class IsUnique_1_1 {
+    public static char isUnique_test(String str) {
+        //char[] chars = str.toCharArray();
+        HashSet<Character> set = new HashSet<>();
+
+        for (int i = 0; i < str.length(); i++) {
+            if (set.contains(str.charAt(i))) {
+                return str.charAt(i);
+            }
+            set.add(str.charAt(i));
+        }
+        return '0';
+    }
+
+    public static char isUnique_test2(String str) {
+        if (str == null || str.length() == 0 || str.length() > 128)
+            return '0';
+
+        char[] cs = str.toCharArray();
+
+        Arrays.sort(cs);// change the original array->can't use to find first
+
+//        for (char c : cs) {
+//            System.out.println(c);
+//        }
+
+        for (int i = 1; i < cs.length; i++) {
+            if (cs[i] == cs[i - 1])
+                return cs[i];
+        }
+        return '0';
+    }
+
+
     //not easy to return position/ index
     // checking first unique and check first dups need to store all elements at very beginning: position matters
 
     //assume 128 ascii code
+
 
     public static boolean isUnique(String str) {
         if (str == null || str.length() == 0 || str.length() > 128)
             return false;
 
         char[] cs = str.toCharArray();
+
         Arrays.sort(cs);// change the original array->can't use to find first
 
 //        for (char c : cs) {
@@ -36,15 +71,14 @@ public class IsUnique_1_1 {
     //s:O(n)
 
 
-
     // use hashset to check unique
-    public static boolean isUnique2(String str){
+    public static boolean isUnique2(String str) {
         if (str == null || str.length() == 0 || str.length() > 128)
             return false;
 
         HashSet<Character> set = new HashSet<>();
-        for(char c : str.toCharArray()){
-            if(!set.add(c)){
+        for (char c : str.toCharArray()) {
+            if (!set.add(c)) {
                 return false;
             }
         }
@@ -54,6 +88,6 @@ public class IsUnique_1_1 {
     //s: O(n)
 
     public static void main(String[] args) {
-        System.out.println(isUnique2("accd"));
+        System.out.println(isUnique_test2("acd"));
     }
 }
