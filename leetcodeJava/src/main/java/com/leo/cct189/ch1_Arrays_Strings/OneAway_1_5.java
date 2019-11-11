@@ -7,7 +7,7 @@ package com.leo.cct189.ch1_Arrays_Strings;
 
 import java.util.Arrays;
 import java.util.HashMap;
-
+//wrong
 public class OneAway_1_5 {
     //check lens, if len - 1: return
     // sort (not applicable) or store in alp/ hashset/ hashmap
