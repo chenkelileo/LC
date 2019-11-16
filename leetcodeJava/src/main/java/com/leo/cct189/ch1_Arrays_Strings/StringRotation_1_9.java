@@ -13,7 +13,7 @@ public class StringRotation_1_9 {
     //2. call newStr.isSubstring(str)
 
     public static boolean isSubstring(String str1, String str2) {
-        return true;
+        return str1.contains(str2);
     }
 
     public static boolean isRotated(String str1, String str2) {
@@ -22,16 +22,18 @@ public class StringRotation_1_9 {
             return false;
         }
 
-        String newStr = str1 + str2;
+        String newStr = str1 + str1;
 
 
-        return isSubstring(newStr, str1);
+        return isSubstring(newStr, str2);
     }
 
     //t: O(A+B) -> O(n) depends on t of isSubstring method
     //s: O(1)
 
     public static void main(String[] args) {
-
+        String str1 = "waterbottle";
+        String str2 = "erbottlewat";
+        System.out.println(isRotated(str1,str2));
     }
 }

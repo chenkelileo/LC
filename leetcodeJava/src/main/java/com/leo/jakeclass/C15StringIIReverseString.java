@@ -1,6 +1,10 @@
 package com.leo.jakeclass;
 
+import java.util.Arrays;
+
 public class C15StringIIReverseString {// or append directly
+
+
     public static String shift(char[] chars, int n) {
         int r = n % (chars.length);
         int l = (chars.length) - r;
@@ -25,6 +29,7 @@ public class C15StringIIReverseString {// or append directly
         int r = n % (str.length());
         return str.substring(str.length() - r) + str.substring(0, str.length() - r);
 
+
     }
 
     public static void shift3(char[] chars, int n) {
@@ -33,6 +38,7 @@ public class C15StringIIReverseString {// or append directly
         reverse2(chars, chars.length - r, chars.length - 1);
         reverse2(chars, 0, chars.length - 1);
     }
+
     public static String reverseSentence(String s) {
         char[] chars = s.toCharArray();
         reverse(chars);
@@ -56,7 +62,7 @@ public class C15StringIIReverseString {// or append directly
         int i = 0;
         int j = 0;
         while (j < s.length()) {
-            if(j == s.length() - 1 ||  cs[j] == ' ' ) {
+            if (j == s.length() - 1 || cs[j] == ' ') {
                 reverse2(cs, i, j - 1);
                 j++;
                 i = j;
