@@ -8,15 +8,15 @@ public class TreasureIsland {
 
     public static int minNumTreasureIsland(char[][] islands) {
         //corner
-        if(islands == null || islands.length == 0 ||islands[0].length == 0) {
+        if (islands == null || islands.length == 0 || islands[0].length == 0) {
             return -1;
         }
         //init
         int m = islands.length;
         int n = islands[0].length;
         Queue<int[]> queue = new LinkedList<>();
-        int steps = 1;
-        queue.add(new int[]{0, 0});
+        int steps = 0;
+        queue.offer(new int[]{0, 0});
         islands[0][0] = 'D';
         // add all sources to queue and set 'visited'.
 //        for(int i = 0; i < m; ++i){
@@ -27,24 +27,27 @@ public class TreasureIsland {
 //            }
 //        }
         //iter
-        while(!queue.isEmpty()){
+        while (!queue.isEmpty()) {
             int size = queue.size();
-            for(int i =0; i < size; i++) {
+            steps++;
+            for (int i = 0; i < size; i++) {
+
                 int[] pos = queue.poll();
-                for(int[] dir: dirs){
+                for (int[] dir : dirs) {
+
                     int x = pos[0] + dir[0];
                     int y = pos[1] + dir[1];
-                    if(x < 0 || x >= m || y < 0 || y >= n || islands[x][y] =='D'){
+                    if (x < 0 || x >= m || y < 0 || y >= n || islands[x][y] == 'D') {
                         continue;
                     }
-                    if(islands[x][y] == 'X'){
+                    if (islands[x][y] == 'X') {
                         return steps;
                     }
-                    queue.add(new int[]{x,y});
+                    queue.offer(new int[]{x, y});
                     islands[x][y] = 'D';
                 }
             }
-            steps++;
+            //steps++;
         }
         //return
         return -1;
