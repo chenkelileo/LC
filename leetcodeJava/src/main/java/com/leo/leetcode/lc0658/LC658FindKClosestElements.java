@@ -37,40 +37,40 @@ public class LC658FindKClosestElements {
         //step 1: find closet
         while (left < right - 1) {
             int mid = left + (right - left) / 2;
-            if (x == arr[mid]) {
-                left = mid; // 2 2 2
+            if (x < arr[mid]) {
+                right = mid; // 2 2 2
             } else if (x > arr[mid]) {
                 left = mid;
             } else {
-                //right = mid;
+                right = mid + 1;
+                left = mid;
                 break;
             }
         }
         //step 2:
+        System.out.println(left + " " + right + " ");
         for (int i = 0; i < k; i++) {
-            if (left < 0) {
-                list.add(arr[right++]);
-            } else if (right >= arr.length) {
+            if (right >= arr.length) {
                 list.add(arr[left--]);
-            } else if (Math.abs(x - arr[left]) > Math.abs(arr[right] - x)) {
+            } else if (left < 0) {
                 list.add(arr[right++]);
+            } else if ((x - arr[left]) <= arr[right] - x) {
+                list.add(arr[left--]);
             } else {
-                list.add(arr[left--]);
+                list.add(arr[right++]);
             }
         }
 
         // step 3:
         Collections.sort(list);
-
-        //return
         return list;
     }
 
-   /** [1,2,3,4,5], k=4, x=3
-        l
-          r
-        m
-
+    /**
+     * [1,2,3,4,5], k=4, x=3
+     * l
+     * r
+     * m
      */
 
 
@@ -98,9 +98,22 @@ public class LC658FindKClosestElements {
         return res;
     }
 
+//use all for test
+//    Input: [1,2,3,4,5], k=4, x=3
+//    Output: [1,2,3,4]
+//    Example 2:
+//    Input: [1,2,3,4,5], k=4, x=-1
+//    Output: [1,2,3,4]
+
+    /**
+     * [1,2,3,4,5], k=4, x=3
+     * l
+     * r
+     * m
+     */
     public static List<Integer> findClosestElements2(int[] arr, int k, int x) {
         // corner case
-        if(arr == null || arr.length == 0) return null;
+        if (arr == null || arr.length == 0) return null;
 
         // initialize
         int left = 0;
@@ -110,7 +123,7 @@ public class LC658FindKClosestElements {
         // iteration
         while (left < right - 1) {
             int mid = left + (right - left) / 2;
-            if(x > arr[mid]) {
+            if (x > arr[mid]) {
                 left = mid;
             } else if (x < arr[mid]) {
                 right = mid;
@@ -119,8 +132,8 @@ public class LC658FindKClosestElements {
             }
         }
 
-        for(int i = 0; i < k; i++) {
-            if(left >= 0 &&right < arr.length && Math.abs(arr[left] - x) > Math.abs(arr[right] - x)) {
+        for (int i = 0; i < k; i++) {
+            if (left >= 0 && right < arr.length && Math.abs(arr[left] - x) > Math.abs(arr[right] - x)) {
                 list.add(arr[right]);
                 right++;
             } else if (left >= 0 && right < arr.length && Math.abs(arr[left] - x) <= Math.abs(arr[right] - x)) {
@@ -129,7 +142,7 @@ public class LC658FindKClosestElements {
             } else if (left < 0 && right < arr.length) {
                 list.add(arr[right]);
                 right++;
-            } else if (right >= arr.length && left>=0){
+            } else if (right >= arr.length && left >= 0) {
                 list.add(arr[left]);
                 left--;
             }
@@ -139,7 +152,7 @@ public class LC658FindKClosestElements {
     }
 
     public static void main(String[] args) {
-        findClosestElements(new int[]{1, 4, 6, 8}, 3, 3);
-        findClosestElements(new int[]{1, 2, 3}, 2, 3);
+        findClosestElements2(new int[]{1, 4, 6, 8}, 3, 3);
+        findClosestElements2(new int[]{1, 2, 3}, 2, 3);
     }
 }

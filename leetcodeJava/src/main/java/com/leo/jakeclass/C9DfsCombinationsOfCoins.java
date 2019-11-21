@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class C9DfsCombinationsOfCoins {
+
     public static List<List<Integer>> combinations(int target, int[] coins) {
         // Corner case
         if (coins == null || coins.length == 0) return new ArrayList<>();
@@ -30,13 +31,13 @@ public class C9DfsCombinationsOfCoins {
         int max = remain / coins[index];
         for (int i = 0; i <= max; i++) {
             temp.add(i);
-            dfs(result, temp, coins, remain - i * coins[index], index+1);
+            dfs(result, temp, coins, remain - i * coins[index], index + 1);
             temp.remove(temp.size() - 1);
         }
     }
 
     public static void main(String[] args) {
-       combinations(4, new int[]{2,1});
+        combinations(4, new int[]{2, 1});
     }
 
 }
